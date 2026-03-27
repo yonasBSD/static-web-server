@@ -5,6 +5,60 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.42.0 - 2026-03-27
+
+This new `v2.42.0` brings bug fixes, new features and improvements. Fix a memory increase regression introduced in `v2.40.0`. Support for HTTP Prometheus metrics, Local-time for logs by default, support for the POSIX `TZ` environment variable to configure logs's timezone as well as other minor improvements.
+
+**Fixes**
+
+- [0b128b9][0b128b9] Update dependencies and bump up Rust to `1.88.0`. PR [#641][641] by [@joseluisq][joseluisq]
+- [4124999][4124999] Regression: Memory increase for Linux Musl statically-linked binaries introduced in `v2.40.0`. More details in PR [#640][640] by [@joseluisq][joseluisq]
+- [8451cf7][8451cf7] `--disable-symlinks` option does not work properly if a path contains intermediate symlink components. PR [#639][639] by [@joseluisq][joseluisq]
+
+[4124999]: https://github.com/static-web-server/static-web-server/commit/4124999
+[8451cf7]: https://github.com/static-web-server/static-web-server/commit/8451cf7
+
+[640]: https://github.com/static-web-server/static-web-server/pull/640
+[641]: https://github.com/static-web-server/static-web-server/pull/641
+[639]: https://github.com/static-web-server/static-web-server/pull/639
+
+**Features**
+
+- [b798f68][b798f68] Local-time support for logs by default to honor user's system time. It also supports the POSIX `TZ` environment variable to update the logs's time zone on demand. PR [#632][632] by [@joseluisq][joseluisq]. See [docs](https://static-web-server.net/features/logging/#log-date-timestamp).
+- [2d50f88][2d50f88] Stabilize Prometheus metrics feature via `--metrics` option. PR [#635][635] by [@chrissnell][chrissnell]. See [docs](https://static-web-server.net/features/metrics)
+- [a4213e5][a4213e5] HTTP-level Prometheus metrics to the metrics endpoint. PR [#631][631] by [@chrissnell][chrissnell]
+- [6ada726][6ada726] Grafana dashboard example for Prometheus metrics feature. PR [#636][636] by [@chrissnell][chrissnell]. See [example](https://github.com/static-web-server/static-web-server/tree/master/contrib/grafana).
+
+[0b128b9]: https://github.com/static-web-server/static-web-server/commit/0b128b9
+[2d50f88]: https://github.com/static-web-server/static-web-server/commit/2d50f88
+[b798f68]: https://github.com/static-web-server/static-web-server/commit/b798f68
+[6ada726]: https://github.com/static-web-server/static-web-server/commit/6ada726
+[a4213e5]: https://github.com/static-web-server/static-web-server/commit/a4213e5
+
+[635]: https://github.com/static-web-server/static-web-server/pull/635
+[632]: https://github.com/static-web-server/static-web-server/pull/632
+[636]: https://github.com/static-web-server/static-web-server/pull/636
+[631]: https://github.com/static-web-server/static-web-server/pull/631
+
+**Docs**
+
+- [0a8c8ca][0a8c8ca] Metrics feature documenation page. PR [#633][633] by [@chrissnell][chrissnell] See [docs](https://static-web-server.net/features/metrics)
+- [b6856ea][b6856ea] Local-time support for logs. PR [#638][638] by [@joseluisq][joseluisq]
+
+[0a8c8ca]: https://github.com/static-web-server/static-web-server/commit/0a8c8ca
+[b6856ea]: https://github.com/static-web-server/static-web-server/commit/b6856ea
+
+[633]: https://github.com/static-web-server/static-web-server/pull/633
+[638]: https://github.com/static-web-server/static-web-server/pull/638
+[627]: https://github.com/static-web-server/static-web-server/pull/627
+
+[chrissnell]: https://github.com/chrissnell
+
+For more details see the [v2.42.0 milestone][v2420-milestone] and the full changelog [v2.41.0...v2.42.0][v2420-diff].
+
+[v2420-diff]: https://github.com/static-web-server/static-web-server/compare/v2.41.0...v2.42.0
+[v2420-milestone]: https://github.com/static-web-server/static-web-server/milestone/37?closed=1
+
 ## v2.41.0 - 2026-02-20
 
 This new `v2.41.0` release includes important bug fixes, new features, and improvements.
